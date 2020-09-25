@@ -1,8 +1,7 @@
 <template lang="pug">
   #app
     h1.titre-shop SHOP
-    .main.bg-grid
-      app-shoes(:shoes="shoes")
+    app-shoes(:shoes="shoes")
 </template>
 
 <script>
@@ -53,20 +52,13 @@ export default {
 
 /*-- VARIABLES CSS--*/
 /*Colores*/
-
-  $first-color: #E3F8FF;
-  $second-color: #DCFAFB;
-  $third-color: #FFE8DF;
-  $accent-color: #FF5151;
   $dark-color: #161616;
 
 
 /*Tipografia responsive*/
   $body-font: 'Open Sans';
   $h1-font-size: 1.5rem;
-  $h3-font-size: 1rem;
-  $normal-font-size: 0.938rem;
-  $smaller-font-size: 0.75rem;
+
 
 @media screen and (min-width: 768px){
   
@@ -97,27 +89,43 @@ a{
     text-decoration: none;
 }
 
-ul{list-style:none;padding: 0;}
+ul{list-style:none;padding:0;margin:0;}
+
+@media screen and (min-width: 1200px){
+  body {
+    margin: 3rem 0 0 0;
+  }
+
+  .titre-shop {
+    margin: 0 5rem;
+  }
+
+  .bg-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 
-  //layout
-  .main {
-    padding: 2rem 0;
-  }
 
-  .bg-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minimax(220px, 1fr));
-    max-width: 1200px;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-    align-items: center;
+  .titre-shop {
+    position: relative;
+    margin: 0 2.5rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 72px;
+      height: 2px;
+      background-color: $dark-color;
+      margin-left: .25rem;
+    }
   }
 }
 </style>
